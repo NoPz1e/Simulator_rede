@@ -37,11 +37,12 @@ def virtual_circuit(nHops, log_text, IPs):
         if ip in black_list_ips or ip == list_ip.index(IPs[0]):
             continue
         if hops != nHops:
+            start_time = time.time()
             turtle.goto(posList[ip])
             hops += 1
             end_time = time.time()
-            milliseconds = int(end_time * 1000)
-            log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{milliseconds}ms\n")
+            elapsed_time = int((end_time - start_time) * 1000)
+            log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{elapsed_time} ms\n")
             log_text.see(tk.END)
             black_list_ips.append(ip)
             if list_ip[ip] == IPs[1]:
@@ -65,11 +66,12 @@ def datagram(nHops, nPackage, IPs, log_text):
             if ip in black_list_ips or ip == list_ip.index(IPs[0]):
                 continue
             if hops != nHops:
+                start_time = time.time()
                 turtle.goto(posList[ip])
                 hops += 1
                 end_time = time.time()
-                milliseconds = int(end_time * 1000)
-                log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{milliseconds}\n")
+                elapsed_time = int((end_time - start_time) * 1000)
+                log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{elapsed_time} ms\n")
                 log_text.see(tk.END)
                 black_list_ips.append(ip)
                 if list_ip[ip] == IPs[1]:
