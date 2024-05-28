@@ -77,7 +77,7 @@ def datagram(nHops, nPackage, IPs, log_text):
 
 def run_simulation():
     nHops = int(hops_entry.get())
-    IPs = (sender_ip.get(), reciever_ip.get())
+    IPs = (sender_ip.get(), receiver_ip.get())
 
     if IPs[0] not in list_ip:
         list_ip.append(IPs[0])
@@ -130,9 +130,9 @@ ttk.Label(mainframe, text="Sender IP:").grid(row=1, column=0, sticky=tk.W)
 sender_ip = tk.Entry(mainframe)
 sender_ip.grid(row=1, column=1, sticky=(tk.W, tk.E))
 
-ttk.Label(mainframe, text="Reciever IP:").grid(row=2, column=0, sticky=tk.W)
-reciever_ip = tk.Entry(mainframe)
-reciever_ip.grid(row=2, column=1, sticky=(tk.W, tk.E))
+ttk.Label(mainframe, text="Receiver IP:").grid(row=2, column=0, sticky=tk.W)
+receiver_ip = tk.Entry(mainframe)
+receiver_ip.grid(row=2, column=1, sticky=(tk.W, tk.E))
 
 ttk.Label(mainframe, text="Number of Packages:").grid(row=3, column=0, sticky=tk.W)
 package_entry = ttk.Entry(mainframe)
