@@ -2,6 +2,7 @@ import random
 import turtle
 import tkinter as tk
 from tkinter import ttk
+import time 
 
 def random_IPS():
     first = random.randint(0, 255)
@@ -38,7 +39,9 @@ def virtual_circuit(nHops, log_text, IPs):
         if hops != nHops:
             turtle.goto(posList[ip])
             hops += 1
-            log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\n")
+            end_time = time.time()
+            milliseconds = int(end_time * 1000)
+            log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{milliseconds}ms\n")
             log_text.see(tk.END)
             black_list_ips.append(ip)
             if list_ip[ip] == IPs[1]:
@@ -64,7 +67,9 @@ def datagram(nHops, nPackage, IPs, log_text):
             if hops != nHops:
                 turtle.goto(posList[ip])
                 hops += 1
-                log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\n")
+                end_time = time.time()
+                milliseconds = int(end_time * 1000)
+                log_text.insert(tk.END, f"{hops}\t{ip}\t{list_ip[ip]}\t{milliseconds}\n")
                 log_text.see(tk.END)
                 black_list_ips.append(ip)
                 if list_ip[ip] == IPs[1]:
