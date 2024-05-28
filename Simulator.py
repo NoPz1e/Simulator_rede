@@ -3,6 +3,9 @@ import turtle
 import tkinter as tk
 from tkinter import ttk
 
+# Sets color mode to rgb instead of string value
+turtle.colormode(255)
+
 # Function to generate random IPs
 def random_IPS():
     first = random.randint(0, 255)
@@ -63,10 +66,13 @@ def virtualCircuit(nHops, log_text):
                 log_text.insert(tk.END, f"{list_ip[target_ip]} reached successfully.\n")
                 break
         else:
+            log_text.insert(tk.END, f"Did not reach the destination.\n")
             break
 
 def datagram(nHops, nPackage, log_text):
     for p in range(nPackage):
+        color = (random.randint(15, 230), random.randint(15, 230), random.randint(15, 230))
+        turtle.pencolor(color)
         turtle.penup()
         turtle.goto(posList[0])
         turtle.pendown()
@@ -86,6 +92,7 @@ def datagram(nHops, nPackage, log_text):
                     black_list_ips.pop()
                     break
             else:
+                log_text.insert(tk.END, f"Package {p} did not reach the destination.\n")
                 break
 
 def run_simulation():
