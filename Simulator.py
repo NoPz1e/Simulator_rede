@@ -96,6 +96,7 @@ def run_simulation():
 
     turtle.penup()
     turtle.goto(posList[list_ip.index(IPs[0])])
+    turtle.pendown()
 
     if mode_var.get() == "1":
         nPackage = int(package_entry.get())
@@ -158,8 +159,6 @@ ttk.Button(mainframe, text="Close", command=close_application).grid(row=7, colum
 
 for child in mainframe.winfo_children(): 
     child.grid_configure(padx=5, pady=7)
-
-mode_var.set("1")
 
 root.mainloop()
 turtle.done()
