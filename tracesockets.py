@@ -1,9 +1,3 @@
-# references:
-#   Learning by doing: Writing your own traceroute in 8 easy steps (Ksplice Blog)
-#   https://blogs.oracle.com/ksplice/entry/learning_by_doing_writing_your
-
-# Edited by: Alejandro Almira <laboral at alejandroalmira.com>
-
 import datetime
 import socket
 import sys
